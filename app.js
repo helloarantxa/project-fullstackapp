@@ -5,13 +5,15 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var mongoose = require('mongoose')
 var session = require('express-session')
+
 var MongoStore = require('connect-mongo')
 
 
-var authRouter = require('./routes/auth');
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users')
 
+var indexRouter = require('./routes/index');
+var usersRouter = require('./routes/users');
+var authRouter = require('./routes/auth')
+var productRouter = require('./routes/product')
 
 
 var app = express();
@@ -33,7 +35,7 @@ app.use(
       sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
       secure: process.env.NODE_ENV === 'production',
       httpOnly: true,
-      maxAge: 60000 // 60 * 1000 ms === 1 min
+      maxAge: 6000000 // 60 * 1000 ms === 1 min
     }, // ADDED code below !!!
     store: MongoStore.create({
       mongoUrl: process.env.MONGODB_URI
@@ -54,6 +56,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/auth', authRouter);
+app.use('/product', productRouter);
 
 
 
