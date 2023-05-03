@@ -1,17 +1,24 @@
 var express = require('express');
 var router = express.Router();
 
-const Room = require('../models/Product.model');
+const Product = require('../models/Product.model');
 
 const { isLoggedIn, isAdmin } = require('../middleware/route-guard')
 
 
 router.get('/create-product', isAdmin, (req, res, next) => {
-    
-    res.render('create-product.hbs')
+    Product.find({owner: req.session.user._id}).then((foundProducts)=>{
+        console.log(foundProducts);
+        res.render('create-product.hbs', { foundProducts })
+    }).catch((err) => {
+        console.log(err);
+//   console.log('New Product:', createdProduct);
 })
 
-router.get('/all')
+});
+    // res.render('create-product.hbs')
+
+
 router.post('/create-product', isLoggedIn, (req, res, next) => {
     const { name, description, price, imageUrl } = req.body
 
@@ -20,17 +27,31 @@ router.post('/create-product', isLoggedIn, (req, res, next) => {
         description,
         price,
         imageUrl,
-        owner: req.session.user._id
-    })
-    .then((createdProduct) => {
-        console.log("New Room:", createdProduct)
-        res.redirect(`/product/create-product/${createdProduct._id}`)
-    })
-    .catch((err) => {
-        console.log(err)
-    })
-        
+        owner: req.session.user._id,
+      })
 
-})
+      .then((createdProduct) => {
+            Product.find({owner: req.session.user._id}).then((foundProducts)=>{
+                console.log(foundProducts);
+                res.render('create-product.hbs', { foundProducts })
+            })
+          console.log('New Product:', createdProduct);
+          
 
-module.exports = router;
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    });
+    
+    router.get('/all-products', (req, res, next) => {
+        Product.find()
+        .then((products) => {
+            res.render('all-products.hbs', { products });
+        })
+        .catch((err) => {
+            console.log(err);
+        });
+    });
+    
+    module.exports = router;
