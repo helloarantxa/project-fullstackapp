@@ -1,28 +1,75 @@
-
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px "Montserrat", Helvetica, Arial, sans-serif;
   margin: 0 auto;
-  max-width: 800px
+  max-width: 800px;
 }
 
-a {
+h2:not(.no-size) {
+  font-size: calc(1.4rem + 0.9vw);
   color: #bfb9b2;
-  text-align: center;
 }
 
-.flowers{
+.h3:not(#exclude),
+h3:not(#exclude) {
+  font-size: calc(0.8rem + 0.6vw);
+  color: #bfb9b2;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: calc(1vw);
+}
+
+.product p {
+  max-width: 300px; /* adjust this value as needed */
+  word-wrap: break-word;
+}
+
+/* Details button */
+
+a:-webkit-any-link {
+  /* color: -webkit-link; */
+  color: orangered;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+/* PRODUCT IMAGES */
+.arrangements {
   height: 25vh;
 }
 
 .logo-container {
   margin-top: 30px;
-  text-align: center; 
+  text-align: center;
 }
-
 
 .logo-container img {
   height: 60vh;
   width: 100vw;
   object-fit: contain;
+}
+
+/* NAV BAR FONTS */
+.navbar-nav li a,
+.navbar-nav .dropdown-menu li a {
+  color: #bfb9b2;
+  text-decoration: none;
+  /* font-weight: bold; */
+}
+
+.navbar-nav .nav-link.active,
+.navbar-nav .nav-link.show {
+  color: #bfb9b2 !important;
+}
+
+.navbar-nav li a:hover {
+  color: green;
+}
+
+.navbar-nav .nav-link.active:hover,
+.navbar-nav .nav-link.show:hover {
+  color: green !important;
 }
