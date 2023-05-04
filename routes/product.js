@@ -5,7 +5,7 @@ const Product = require('../models/Product.model');
 
 const { isLoggedIn, isAdmin } = require('../middleware/route-guard')
 
-
+//Create Product
 router.get('/create-product', isAdmin, (req, res, next) => {
     Product.find({owner: req.session.user._id}).then((foundProducts)=>{
         console.log(foundProducts);
@@ -41,7 +41,8 @@ router.post('/create-product', isLoggedIn, (req, res, next) => {
           console.log(err);
         });
     });
-    
+
+//Read
     router.get('/all-products', (req, res, next) => {
         Product.find()
         .then((products) => {
@@ -52,8 +53,6 @@ router.post('/create-product', isLoggedIn, (req, res, next) => {
         });
     });
     
-
-
 
 //Delete button
     router.post("/delete/:id", (req, res, next) => {
@@ -83,5 +82,36 @@ router.get('/product-details/:id', (req, res, next) => {
       })
 
 })
+
+//Update edit 
+router.get("/product-details/:id", (req, res, next) => {
+    Product.findById(req.params.id)
+      .then((product) => {
+        res.render("product-details.hbs", { product });
+      })
+      .catch((err) => {
+        console.log(err);
+        next(err);
+      });
+  });
+  
+  // POST route Edit product
+router.post("/edit-product/:id", (req, res, next) => {
+    const { name, description, price, imageUrl } = req.body;
+    Product.findByIdAndUpdate(req.params.id, {
+      name,
+      description,
+      price,
+      imageUrl,
+    })
+      .then(() => {
+        res.redirect(`/product/product-details/${req.params.id}`);
+      })
+      .catch((err) => {
+        console.log(err);
+        next(err);
+      });
+  });
+  
 
     module.exports = router;

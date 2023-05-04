@@ -45,7 +45,8 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-      <form action="ENDPOINT FOR UPDATING PORODUCT ROUTE" method="post">
+
+      <form action="/product/edit-product/{{_id}}" method="post">
         <label for="name">Title</label>
         
         <input type="text" name="name" value="{{name}}"/><label for="description">Description</label>

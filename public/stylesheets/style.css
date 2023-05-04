@@ -63,6 +63,7 @@ a:-webkit-any-link {
 .navbar-nav .nav-link.active,
 .navbar-nav .nav-link.show {
   color: #bfb9b2 !important;
+  align-content: center;
 }
 
 .navbar-nav li a:hover {
@@ -73,3 +74,17 @@ a:-webkit-any-link {
 .navbar-nav .nav-link.show:hover {
   color: green !important;
 }
+
+/* dropdown menu */
+/* .dropdown-menu {
+  text-align: center;
+}
+
+.dropdown-menu li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.dropdown-menu li:last-child {
+  margin-right: 0;
+} */
