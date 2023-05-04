@@ -5,11 +5,19 @@
   <div class="product">
     <h3>{{name}}</h3>
 
-    <img src="{{imageUrl}}" alt="{{name}}">
+    <img class="flowers" src="{{imageUrl}}" alt="{{name}}">
 
     <p>{{description}}</p>
 
     <p>Price: {{price}}</p>
+  </div>
+
+{{!-- Reviews --}}
+ {{!-- <form action="/product/reviews/{{_id}}" method="get">
+      <button type="submit">Reviews</button>
+    </form> --}}
+
+    <a href="/product/product-details/{{_id}}">Details</a>
   </div>
 
 {{else}}

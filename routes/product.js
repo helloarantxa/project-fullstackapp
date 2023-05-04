@@ -12,11 +12,9 @@ router.get('/create-product', isAdmin, (req, res, next) => {
         res.render('create-product.hbs', { foundProducts })
     }).catch((err) => {
         console.log(err);
-//   console.log('New Product:', createdProduct);
 })
 
 });
-    // res.render('create-product.hbs')
 
 
 router.post('/create-product', isLoggedIn, (req, res, next) => {
@@ -54,4 +52,36 @@ router.post('/create-product', isLoggedIn, (req, res, next) => {
         });
     });
     
+
+
+
+//Delete button
+    router.post("/delete/:id", (req, res, next) => {
+        Product.findByIdAndDelete(req.params.id)
+          .then((result) => {
+            console.log("Deleted:", result);
+            res.redirect("/product/create-product");
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      });
+
+
+//Reviews
+router.get('/product-details/:id', (req, res, next) => {
+    
+  Product.findById(req.params.id)
+      .populate('owner')
+      .populate({path: "reviews", 
+          populate: {path: "user"}})
+      .then((foundProducts) => {
+          res.render('product-details.hbs', foundProducts)
+      })
+      .catch((err) => {
+          console.log(err)
+      })
+
+})
+
     module.exports = router;
