@@ -52,7 +52,13 @@ a:-webkit-any-link {
 
 /* PRODUCT IMAGES */
 .arrangements {
-  height: 25vh;
+  height: 35vh;
+  object-fit:contain;
+}
+
+.add-product-img {
+  height: 35vh;
+  object-fit:contain;
 }
 
 .logo-container {
@@ -146,4 +152,21 @@ h2.add-product{
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
+}
+
+.edit.product label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.edit.product input[type="text"],
+.edit.product input[type="number"] {
+  width: 100%;
+  margin: 1px;
+  padding: 1rem;
+ 
+  height: 2rem; /* Adjust as needed */
+  /* text-align: center; */
+  justify-content: center;
+  word-wrap: initial;
 }
