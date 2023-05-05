@@ -1,10 +1,9 @@
 body:not(.no-size) {
   padding: 50px;
-  font: .9rem "Montserrat", Helvetica, Arial, sans-serif;
+  font-family: "Montserrat", sans-serif;
   margin: 0 auto;
   max-width: 800px;
   color: #bfb9b2;
-  
 }
 
 /* home button */
@@ -23,23 +22,50 @@ h2.all-products {
   /* top: 0; */
   left: 50%;
   transform: translateX(-50%);
+  white-space: nowrap;
 }
 /* Product name */
 h3.product-name {
   font-size: 2.3rem;
   color: #bfb9b2;
-  
+  text-align: center;
+  white-space: nowrap;
 }
 
 /* Product Description */
 
 p.description {
-  max-width: 300px; /* adjust this value as needed */
+  max-width: 450px; /* adjust this value as needed */
   word-wrap: break-word;
  color: #bfb9b2;
-  margin-top: 0;
+  /* margin-top: 0; */
   margin-bottom: 1.3rem;
   font-size: 1.24rem ;
+
+  display: block;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+}
+
+p.price{
+  max-width: 450px; /* adjust this value as needed */
+  word-wrap: break-word;
+ color: #bfb9b2;
+  /* margin-top: 0; */
+  margin-bottom: 1.3rem;
+  font-size: 1.24rem ;
+
+  display: block;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
 }
 
 /* Details button */
@@ -48,6 +74,10 @@ a:-webkit-any-link {
   cursor: pointer;
   text-decoration: none;
   font-size:calc(1.7vw);
+  text-decoration: underline;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* PRODUCT IMAGES */
@@ -111,6 +141,7 @@ ul.dropdown-menu.show {
 a.signup , a.logout , a.login  {
   font-size: 1.18rem;
   align-items: end;
+  white-space: nowrap;
 }
 
 
@@ -178,6 +209,67 @@ h2.add-product{
   word-wrap: initial;
 }
 
+input#description.form-control {
+  font-size: .95rem;
+}
+input#name.form-control {
+  font-size: .95rem;
+}
+input#price.form-control {
+  font-size: .95rem;
+}
+input#image.form-control {
+  font-size: .95rem;
+}
+
+
+/* input#username.form-control{
+  font-size: .98rem;
+}
+input#email.form-control{
+  font-size: .98rem;
+}
+input#password.form-control{
+  font-size: .98rem;
+} */
+img.arrangements{
+  display: block;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+img.add-product-img{
+  display: block;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+button.btn.btn-danger{
+  display: block;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+button.btn.btn-primary {
+  display: block;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+
+
 /* Product details */
 h2.product-details{
   font-size: 3.65rem;
@@ -187,6 +279,7 @@ h2.product-details{
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
+  white-space: nowrap;
 }
 h3.name{
   font-size: 2.3rem;
@@ -195,7 +288,28 @@ h3.name{
 
 #price {
   font-size: 1.4rem;
+  
 }
 #description{
   font-size: 1.24rem ;
 }
+
+/* all button colors */
+button.btn.btn-primary {
+  background-color: #745E56;
+  border-color: #745E56;
+}
+
+button.btn.btn-primary:hover {
+  background-color: #745E56;
+  --bs-btn-active-border-color: #745E56;
+}
+
+
+
+/* .carousel.slide{
+  height: 35vh;
+  object-fit: contain;
+
+} */
+
