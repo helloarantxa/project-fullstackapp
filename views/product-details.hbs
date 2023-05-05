@@ -1,19 +1,29 @@
-<h2>Product Details</h2>
+<br />
+<br />
+<h2 class="product-details">Product Details</h2>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<img class="product-details-img" src="{{imageUrl}}" alt="product-details"/>
+<br>
+<br>
+<br>
+<h3 class="name">{{name}}</h3>
+<p id="price">Price: {{price}}</p>
+<p id="description">Description: {{description}}</p>
 
-<img class="product-details" src="{{imageUrl}}" alt="product-details">
-
-<h3>{{name}}</h3>
-<p>Price: {{price}}</p>
-<p>Description: {{description}}</p>
-
-<hr>
+<hr/>
 
 <h4>Reviews</h4>
 
 <form action="/reviews/add-review/{{_id}}" method="post">
   <div class="input-group mb-3">
-    {{!-- <label for="comment" class="input-group-text">Add Review</label> --}}
-    <input type="text" class="form-control" id="comment" name="comment">
+    {{! <label for="comment" class="input-group-text">Add Review</label> }}
+    <input type="text" class="form-control" id="comment" name="comment" />
     <button type="submit" class="btn btn-primary">Submit Review</button>
   </div>
 </form>
@@ -22,15 +32,15 @@
 
 {{#if reviews}}
 
-{{#each reviews}}
+  {{#each reviews}}
 
     <p>{{comment}}</p>
     <h6>- {{user.username}}</h6>
 
-    <br>
+    <br />
 
-{{/each}}
+  {{/each}}
 
 {{else}}
-<P>No Reviews</P>
+  <P>No Reviews</P>
 {{/if}}

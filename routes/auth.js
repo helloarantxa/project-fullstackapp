@@ -60,8 +60,8 @@ router.post('/login', (req, res, next) => {
 
                 req.session.user = user
                 console.log('User:', user)
-                res.redirect('/')
-                // res.redirect(`/users/profile`);
+                res.redirect('/home')
+               
             } else {
                 res.render('auth/login', { errorMessage: 'Incorrect email or password.' });
             }
