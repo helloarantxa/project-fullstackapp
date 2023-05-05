@@ -1,23 +1,39 @@
-<h2>Add Product</h2>
-
-<form action="/product/create-product" method="post">
-
-    <label for="name">Name</label>
-    <input id="name" type="text" name="name">
-
-    <label for="description">Description</label>
-    <input id="description" type="text" name="description">
-
-    <label for="price">Price</label>
-    <input id="price" type="number" name="price">
-
-    <label for="imageUrl">Image</label>
-    <input id="imageUrl" type="text" name="imageUrl">
-
-    <button type="submit">Add Product</button>
-
-</form>
-
+<div id="form">
+    <br>
+    <br>
+  <h2 class="add-product">Add Product</h2>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>  
+  <form action="/product/create-product" method="POST">
+    <div class="mb-3">
+      <label for="name" class="form-label">Name</label>
+      <input type="text" class="form-control" id="name" name="name">
+    </div>
+    <div class="mb-3">
+      <label for="description" class="form-label">Description</label>
+      <input type="text" class="form-control" id="description" name="description">
+    </div>
+    <div class="mb-3">
+      <label for="price" class="form-label">Price</label>
+      <input type="number" class="form-control" id="price" name="price">
+    </div>
+    <div class="mb-3">
+      <label for="imageUrl" class="form-label">Image</label>
+      <input type="text" class="form-control" id="imageUrl" name="imageUrl">
+    </div>
+    <button type="submit" class="btn btn-primary">Add Product</button>
+  </form>
+</div>
+<br>
+<br>
+<br>
+<br>
 {{#each foundProducts}}
 
   <div class="product">
@@ -25,17 +41,28 @@
 
     <img src="{{imageUrl}}" alt="{{name}}" style="width: 20vw; height: 30vh; object-fit:contain">
 
-    <p>{{description}}</p>
+    <p class="description">{{description}}</p>
 
     <p>Price: {{price}}</p>
   
   <form action="/product/delete/{{_id}}" method="post">
-        <button type="submit">Delete Product</button>
-    </form>
+  <button type="submit" class="btn btn-danger">Delete Product</button>
+</form>
+
+
+{{!-- edit toggle --}}
 
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
   Edit
 </button>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
 
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">

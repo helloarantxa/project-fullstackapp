@@ -1,24 +1,32 @@
-    
-    
-    <div id="form">
-    <h1>Sign up</h1>
-    <form action="/auth/signup" method="POST">
-      
-        <label for="username">Username:
-        <input type="text" id="username" name="username" required>
-        </label>
-      
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-      
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
-    
-        <button type="submit">Create Account</button>
-      </div>
-
-
-      {{#if errorMessage}}
+  <div id="form">
+    <br>
+    <br>
+    <h1 class="sign-up">Sign up</h1>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+  <form action="/auth/signup" method="POST">
+    <div class="mb-3">
+      <label for="username" class="form-label">Username</label>
+      <input type="text" class="form-control" id="username" name="username" required>
+    </div>
+    <div class="mb-3">
+      <label for="email" class="form-label">Email</label>
+      <input type="email" class="form-control" id="email" name="email" required>
+    </div>
+    <div class="mb-3">
+      <label for="password" class="form-label">Password</label>
+      <input type="password" class="form-control" id="password" name="password" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Create Account</button>
+  </form>
+  
+  {{#if errorMessage}}
     <p class="error">{{errorMessage}}</p>
   {{/if}}
-    </form>
+</div>
