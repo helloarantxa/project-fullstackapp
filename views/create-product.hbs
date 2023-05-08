@@ -1,67 +1,63 @@
 <div class="container">
-<div id="form">
+  <div id="form">
     <br>
     <br>
-  <h2 class="add-product">Add Product</h2>
-    <br>
-    <br>
-    <br>
+    <h2 class="add-product">Add Product</h2>
     <br>
     <br>
     <br>
-  <form action="/product/create-product" method="POST">
-    <div class="mb-3">
-      <label for="name" class="form-label">Name</label>
-      <input type="text" class="form-control" id="name" name="name">
+    <br>
+    <br>
+    <br>
+    <form action="/product/create-product" method="POST">
+      <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" class="form-control" id="name" name="name">
+      </div>
+      <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <input type="text" class="form-control" id="description" name="description">
+      </div>
+      <div class="mb-3">
+        <label for="price" class="form-label">Price</label>
+        <input type="number" class="form-control" id="price" name="price">
+      </div>
+      <div class="mb-3">
+        <label for="imageUrl" class="form-label">Image</label>
+        <input type="text" class="form-control" id="imageUrl" name="imageUrl">
+      </div>
+      <button type="submit" class="btn btn-primary">Add Product</button>
+    </form>
+  </div>
+  <br>
+  <br>
+  <br>
+  <br>
+  {{#each foundProducts}}
+  <div class="card mb-3">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img src="{{imageUrl}}" class="img-fluid rounded-start" alt="{{name}}">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h3 class="card-title product-name">{{name}}</h3>
+          <p class="card-text price">Price: {{price}}</p>
+          <p class="card-text description">{{description}}</p>
+          <!-- delete button for each product -->
+          <form action="/product/delete/{{_id}}" method="post">
+            <button type="submit" class="btn btn-danger">Delete Product</button>
+          </form>
+          <!-- Edit button for each product -->
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal{{_id}}">
+            Edit
+          </button>
+        </div>
+      </div>
     </div>
-    <div class="mb-3">
-      <label for="description" class="form-label">Description</label>
-      <input type="text" class="form-control" id="description" name="description">
-    </div>
-    <div class="mb-3">
-      <label for="price" class="form-label">Price</label>
-      <input type="number" class="form-control" id="price" name="price">
-    </div>
-    <div class="mb-3">
-      <label for="imageUrl" class="form-label">Image</label>
-      <input type="text" class="form-control" id="imageUrl" name="imageUrl">
-    </div>
-    <button type="submit" class="btn btn-primary">Add Product</button>
-  </form>
-</div>
-<br>
-<br>
-<br>
-<br>
-{{#each foundProducts}}
+  </div>
 
-  <div class="product">
-    <h3 class="product-name">{{name}}</h3>
-
-    <img class="add-product-img" src="{{imageUrl}}" alt="{{name}}">
-<p class="price">Price: {{price}}</p>
-    <p class="description">{{description}}</p>
-
-    
-  
-<!-- delete button for each product -->
-<form action="/product/delete/{{_id}}" method="post">
-  <button type="submit" class="btn btn-danger">Delete Product</button>
-</form>
-
-
-<!-- Edit button for each product -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal{{_id}}">
-  Edit
-</button>
-
-
-<br>
-<br>
-<br>
-<br>
-
-<!-- Edit product modal -->
+<!-- Edit Product Form -->
 <div class="modal fade" id="exampleModal{{_id}}" tabindex="-1" aria-labelledby="exampleModalLabel{{_id}}" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">

@@ -1,5 +1,14 @@
 var express = require("express");
 var router = express.Router();
+
+router.get("/", (req, res) => {
+  res.render("home", { title: "Blisee Studio" });
+});
+
+module.exports = router;
+
+
+
 // const Product = require('../models/Product.model');
 // const twilio = require('twilio');
 
@@ -28,15 +37,5 @@ var router = express.Router();
 //     next(err);
 //   }
 // });
-
-
-router.get("/", (req, res) => {
-  res.render("home", { title: "Blisee Studio" });
-});
-
-module.exports = router;
-
-
-
 
 
